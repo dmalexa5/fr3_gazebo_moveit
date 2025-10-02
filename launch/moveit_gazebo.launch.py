@@ -107,14 +107,7 @@ def generate_launch_description():
         )
 
     # Start the move_group node
-    ld.add_action(
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                str(moveit_config.package_path / "launch/move_group.launch.py")
-            ),
-        )
-    )
-
+    # TODO: abstract this away into (likely) a seperate file (maybe .yaml config file?)
     for launch_arg in [
         DeclareBooleanLaunchArg("debug", default_value=False),
         DeclareBooleanLaunchArg("allow_trajectory_execution", default_value=True),
