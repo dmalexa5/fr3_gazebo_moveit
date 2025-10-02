@@ -148,7 +148,8 @@ def generate_launch_description():
     move_group_params = [
         moveit_config.to_dict(),
         move_group_configuration,
-        {'use_sim_time': use_sim_time}
+        {'use_sim_time': use_sim_time},
+        {"allowed_start_tolerance": 0.05} # TODO: remove once a better controller is in place
     ]
 
     add_debuggable_node(
